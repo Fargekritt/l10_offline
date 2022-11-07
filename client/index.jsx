@@ -44,12 +44,17 @@ function Application(){
     function handleNewMessage(message){
         ws.send(JSON.stringify({ message, user }));
     }
+
+    function handleClose(){
+        console.log("LMAO")
+        ws.close();
+    }
     //console.log(user);
     if(!user){
         return <UserRegistrationForm onUsername={setUser} />;
     }
     return(
-      <ChatApp messages={messages} onNewMessage={handleNewMessage} />
+      <ChatApp messages={messages} onNewMessage={handleNewMessage} onClose={handleClose} />
     );
 }
 

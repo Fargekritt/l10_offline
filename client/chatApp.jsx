@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function ChatApp({ messages, onNewMessage }) {
+export function ChatApp({ messages, onNewMessage, onClose }) {
     const [message, setMessage] = useState("");
 
     function handleSubmit(e){
@@ -29,6 +29,7 @@ export function ChatApp({ messages, onNewMessage }) {
                     <button> Send </button>
                 </form>
             </footer>
+            <button onClick={onClose}> Close </button>
         </>
     );
 }
